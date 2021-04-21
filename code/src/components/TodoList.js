@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 
 import { Todo } from 'components/Todo'
-import { Select } from 'library/Select'
+import { SelectCategory } from 'library/Select'
 import { ClearButton } from 'components/ClearButton'
 import { CompleteAllButton } from 'components/CompleteAllButton'
 import { Subtitle } from 'library/Text'
@@ -13,8 +13,8 @@ export const TodoList = () => {
   const [category, setCategory] = useState('')
 
   const items = useSelector((store) => {
-    if (!category) return store.todos.items //if no category chosen, show all items 
-    else return store.todos.items.filter(item => item.category === category) // else filter the list on category 
+    if (!category) return store.todos.items
+    else return store.todos.items.filter(item => item.category === category)
   })
   
   if (items.length === 0 && !category) {
@@ -27,18 +27,18 @@ export const TodoList = () => {
     return (
       <ListWrapper>
         <label>
-          <Select
+          <SelectCategory
             value={category}
             onChange={(event) => setCategory(event.target.value)}
           >
-            <option value=''>Filter by category:</option>
+            <option value=''>Filter by category</option>
             <option value='Work'>Work</option>
             <option value='Study'>Study</option>
             <option value='Household'>Household</option>
             <option value='Shopping'>Shopping</option>
             <option value='Fun'>Fun</option>
             <option value='Other'>Other</option>
-          </Select>
+          </SelectCategory>
         </label>
         <Subtitle>No tasks in this category</Subtitle>
       </ListWrapper>
@@ -48,18 +48,18 @@ export const TodoList = () => {
   return (
     <ListWrapper>
       <label>
-        <Select
+        <SelectCategory
           value={category}
           onChange={(event) => setCategory(event.target.value)}
         >
-          <option value=''>Filter by category:</option>
+          <option value=''>Filter by category</option>
           <option value='Work'>Work</option>
           <option value='Study'>Study</option>
           <option value='Household'>Household</option>
           <option value='Shopping'>Shopping</option>
           <option value='Fun'>Fun</option>
           <option value='Other'>Other</option>
-        </Select>
+        </SelectCategory>
       </label>
       <ToDoList>
         {items.map((item) => (

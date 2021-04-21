@@ -1,4 +1,4 @@
- import styled from 'styled-components'
+ import styled from 'styled-components/macro'
 
 //props: if props is sent on button in component regarding background 
 //it will take that color, otherwise have default color.
@@ -8,7 +8,7 @@ export const Button = styled.button`
   background: ${(props) => props.background || '#d3947a'};
   font-size: 16px;
   border: none;
-  border-radius: 3px;
+  // border-radius: 3px;
   color: #fff;
   font-weight: 600;
   cursor: pointer;
@@ -20,12 +20,12 @@ export const Button = styled.button`
 `;
 
 export const AddButton = styled.button`
-  padding: 8px;
+  padding: 8px, 14px;
   margin: 3px;
   background: #757f9e;
   color: #ffffff;
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 800;
   border: none;
   border-radius: 6px;
   cursor: pointer;

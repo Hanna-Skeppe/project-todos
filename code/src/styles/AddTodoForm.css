@@ -1,10 +1,3 @@
-
-/* I didn't know how to style the datepicker 
-with styled components (since it is an automatically created class), 
-so I put it in a css-file instead.
-Haven't figured out how to style the 
-input/placeholder so that 'Due Date' is displayed
-on the datepicker (just as in the select dropdown)*/
 .react-date-picker__wrapper {
   height: 40px;
   background: #d3947a;
@@ -13,4 +6,14 @@ on the datepicker (just as in the select dropdown)*/
   border: none;
   margin: 5px 8px 10px 0;
   cursor: pointer;
+}
+
+.react-date-picker__inputGroup__year,
+.react-date-picker__inputGroup__month,
+.react-date-picker__inputGroup__day {
+  color: #606060;
+}
+
+.react-date-picker__button svg {
+  stroke: #606060;
 }

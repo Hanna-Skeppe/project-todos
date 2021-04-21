@@ -5,17 +5,15 @@ import styled from 'styled-components'
 
 import { todos } from 'reducers/todos'
 import { AddButton } from 'library/Buttons'
-import { AddTodoEmoji } from 'library/Emojis'
 import { InputText } from 'library/Text'
 import { Select } from 'library/Select'
 import 'styles/AddTodoForm.css'
-
-//How to add startdate/added date to an added task?
 
 export const AddTodoForm = () => {
   const [text, setText] = useState('')
   const [category, setCategory] = useState('')
   const [dueDate, setDueDate] = useState(new Date())
+  const [startDate, setStartDate] = useState(new Date())
   const [complete, setComplete] = useState(false)
   const dispatch = useDispatch()
 
@@ -26,7 +24,8 @@ export const AddTodoForm = () => {
         text, 
         category, 
         complete, 
-        dueDate: dueDate.getTime()
+        dueDate: dueDate.getTime(), 
+        startDate: startDate.getTime()
       }))
     setText('') 
     setCategory('') 
@@ -38,10 +37,9 @@ export const AddTodoForm = () => {
     <ToDoForm onSubmit={handleSubmit}>
       <FormElementsWrapper> 
         <FormTextInputWrapper> 
-          <AddTodoEmoji>📝</AddTodoEmoji>
           <label aria-label='add todo'>
             <InputText
-              placeholder='New task...'
+              placeholder='New todo...'
               type='text'
               value={text}
               onChange={(event) => setText(event.target.value)}
@@ -80,7 +78,7 @@ export const AddTodoForm = () => {
           type='submit' 
           disabled={text.length < 3}
         >
-          Add to list
+          +
         </AddButton>
       </AddButtonWrapper>
     </ToDoForm>
@@ -104,7 +102,8 @@ const FormElementsWrapper = styled.div`
 `;
 
 const FormTextInputWrapper = styled.div`
-  width: 85vw;  
+  width: 85vw; 
+  margin: auto; 
   margin-bottom: 1vh;
   display: flex;
   align-items: center;

@@ -40,12 +40,10 @@ export const Todo = (props) => {
           Remove
         </Button>
       </ItemLineWrapper>
-      {/* Note to self: Implement functionality so that text turns red if duedate is passed */}
       <ItemLineWrapper>
         <TimeLine>
-          {/* To fix: Comment in code-review: The startDate property does not exist on the todos so this will always say "a few seconds ago" */}
           <TimeIcon src="../assets/clock.svg" />
-          {moment(startDate).fromNow()} 
+          {moment(startDate).format('MMM Do YYYY')}
         </TimeLine>
         {' '}{dueDate &&
           <TimeLine>
